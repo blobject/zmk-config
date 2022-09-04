@@ -13,10 +13,10 @@ layers:              |****|****|    ||    |****|****|
   ONE                | al |ONE | \e || \s | su |TWO | <--- thumb
 + TWO                '----'----'----''----'----'----'
 = TRI  ^------------------ left ---^  ^--- right -----------------^
-= .--.--.--.--.--. .--.--.--.---.--.  .---.--.--. .---.
-  |l-|l+|vx|v-|v+| |b1|b2|b3|clr|bt|  |usb|in|pr| |GCS|
-  |q |w |e |r |t | |z |x |c | v |b |  | u |i |p | | n |
-  '--'--'--'--'--' '--'--'--'---'--'  '---'--'--' '---'
+= .--.--.--.--.--. .--.--.--.---.--.  .---.--. .--. .---.
+  |l-|l+|vx|v-|v+| |b1|b2|b3|clr|bt|  |usb|pr| |in| |GCS|
+  |q |w |e |r |t | |z |x |c | v |b |  | u |i | |h | | n |
+  '--'--'--'--'--' '--'--'--'---'--'  '---'--' '--' '---'
   GCS
 = .--.--.--.--.--.--.
   |\e|1 |2 |3 |4 |5 |
@@ -28,3 +28,15 @@ layers:              |****|****|    ||    |****|****|
            |sh|\s|g ||su|*1|*2|
            '--'--'--''--'--'--'
 #+END_SRC
+
+*** keymap changing
+
+For the sake of arm/wrist/hand health, do not use qwerty.
+
+*linux*
+1. define mapping in =/usr/share/X11/xkb/symbols/=
+2. sway/wayland:
+    1. ~swaymsg -t get_inputs~ to determine keyboard identifier
+    2. =input KBID { xkb_layout MAPFILE }= in =.config/sway/config=
+3. xorg:
+    - =setxkbmap MAPFILE= in =.xsession= or whatever

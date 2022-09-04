@@ -1,39 +1,42 @@
 // Copyright (c) 2020 The ZMK Contributors
 // SPDX-License-Identifier: MIT
+// modified by github.com/blobject
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 
-// .---. .----.----.----.----.----.----..----.----.----.----.----.----.
-// |1 2| |    |1 f1|2 f2|3 f3|4 f4|5 f5||6 f6|7 f7|8 f8|9 f9|0f10|  dl|
-// |0 ^| | \t |q  Q|w  W|e  E|r  R|t  T||y  Y|u  U|i  I|o  O|p  P|bs  |
-// :---: |----|----|----|----|----|----||----|----|----|----|----|----|
-// |***| |****|!   |@   |#   |$   |%f11||^f12|& uu|*  u|- dd|_   |\  ||
-// |mod| | ct |a  A|s  S|d  D|f  F|g  G||h  H|j  J|k  K|l  L|;  :|'  "|
-// '---' |----|----|----|----|----|----||----|----|----|----|----|----|
-//       |****|`   |~   |(   |[   |{ lk||} ho|]  l|)  d|+  r|= en|    |
-//       | sh |z  Z|x  X|c  C|v  V|b  B||n  N|m  M|,  <|.  >|/  ?| \n |
-//       '----'----'----|----|----|----||----|----|----|----'----'----'
-// layers:              |****|****|    ||    |****|****|
-//   ONE                | al |ONE | \e || \s | su |TWO | <--- thumb
-// + TWO                '----'----'----''----'----'----'
-// = TRI  ^------------------ left ---^  ^--- right -----------------^
-// = .--.--.--.--.--. .--.--.--.---.--.  .---.--.--. .---.
-//   |l-|l+|vx|v-|v+| |b1|b2|b3|clr|bt|  |usb|in|pr| |GCS|
-//   |q |w |e |r |t | |z |x |c | v |b |  | u |i |p | | n |
-//   '--'--'--'--'--' '--'--'--'---'--'  '---'--'--' '---'
-//   GCS
-// = .--.--.--.--.--.--.
-//   |\e|1 |2 |3 |4 |5 |
-//   |--|--|--|--|--|--|
-//   |\t|q |w |e |r |6 |
-//   |--|--|--|--|--|--|
-//   |ct|a |s |d |f |t |
-//   '--'--'--|--|--|--|'--.--.--.
-//            |sh|\s|g ||su|*1|*2|
-//            '--'--'--''--'--'--'
+/*
+.---. .----.----.----.----.----.----..----.----.----.----.----.----.
+|1 2| |    |1 f1|2 f2|3 f3|4 f4|5 f5||6 f6|7 f7|8 f8|9 f9|0f10|  dl|
+|0 ^| | \t |q  Q|w  W|e  E|r  R|t  T||y  Y|u  U|i  I|o  O|p  P|bs  |
+:---: |----|----|----|----|----|----||----|----|----|----|----|----|
+|***| |****|!   |@   |#   |$   |%f11||^f12|& uu|*  u|- dd|_   |\  ||
+|mod| | ct |a  A|s  S|d  D|f  F|g  G||h  H|j  J|k  K|l  L|;  :|'  "|
+'---' |----|----|----|----|----|----||----|----|----|----|----|----|
+      |****|`   |~   |(   |[   |{ lk||} ho|]  l|)  d|+  r|= en|    |
+      | sh |z  Z|x  X|c  C|v  V|b  B||n  N|m  M|,  <|.  >|/  ?| \n |
+      '----'----'----|----|----|----||----|----|----|----'----'----'
+layers:              |****|****|    ||    |****|****|
+  ONE                | al |ONE | \e || \s | su |TWO | <--- thumb
++ TWO                '----'----'----''----'----'----'
+= TRI  ^------------------ left ---^  ^--- right -----------------^
+= .--.--.--.--.--. .--.--.--.---.--.  .---.--. .--. .---.
+  |l-|l+|vx|v-|v+| |b1|b2|b3|clr|bt|  |usb|pr| |in| |GCS|
+  |q |w |e |r |t | |z |x |c | v |b |  | u |i | |h | | n |
+  '--'--'--'--'--' '--'--'--'---'--'  '---'--' '--' '---'
+  GCS
+= .--.--.--.--.--.--.
+  |\e|1 |2 |3 |4 |5 |
+  |--|--|--|--|--|--|
+  |\t|q |w |e |r |6 |
+  |--|--|--|--|--|--|
+  |ct|a |s |d |f |t |
+  '--'--'--|--|--|--|'--.--.--.
+           |sh|\s|g ||su|*1|*2|
+           '--'--'--''--'--'--'
+*/
 
 #define KDEF 0
 #define KONE 1
@@ -54,30 +57,29 @@
     compatible = "zmk,keymap";
     default_layer {
       bindings = <
-// left row 1
-&kp TAB      &kp Q        &kp W        &kp E        &kp R        &kp T
-// right row 1
-&kp Y        &kp U        &kp I        &kp O        &kp P        &kp BSPC
-// left row 2
-&kp LCTRL    &kp A        &kp S        &kp D        &kp F        &kp G
-// right row 2
-&kp H        &kp J        &kp K        &kp L        &kp SEMI     &kp SQT
-// left row 3
-&kp LSHFT    &kp Z        &kp X        &kp C        &kp V        &kp B
-// right row 3
-&kp N        &kp M        &kp COMMA    &kp DOT      &kp FSLH     &kp RET
-// left thumbs, right thumbs
-&kp LALT     &mo KONE     &kp ESC      &kp SPACE    &kp LGUI     &mo KTWO
+/* L1 */ &kp TAB   &kp Q     &kp W     &kp E     &kp R     &kp T
+/* R1 */ &kp Y     &kp U     &kp I     &kp O     &kp P     &kp BSPC
+
+/* L2 */ &kp LCTRL &kp A     &kp S     &kp D     &kp F     &kp G
+/* R2 */ &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp SQT
+
+/* L3 */ &kp LSHFT &kp Z     &kp X     &kp C     &kp V     &kp B
+/* R3 */ &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  &kp RET
+
+/* TH */ &kp LALT  &mo KONE  &kp ESC   &kp SPACE &kp LGUI  &mo KTWO
       >;
     };
     one_layer {
       bindings = <
 &trans       &kp N1       &kp N2       &kp N3       &kp N4       &kp N5
 &kp N6       &kp N7       &kp N8       &kp N9       &kp N0       &trans
+
 &trans       &kp EXCL     &kp AT       &kp HASH     &kp DLLR     &kp PRCNT
 &kp CARET    &kp AMPS     &kp STAR     &kp MINUS    &kp UNDER    &kp BSLH
+
 &trans       &kp GRAVE    &kp TILDE    &kp LPAR     &kp LBKT     &kp LBRC
 &kp RBRC     &kp RBKT     &kp RPAR     &kp PLUS     &kp EQUAL    &trans
+
 &trans       &trans       &trans       &trans       &trans       &trans
       >;
     };
@@ -85,21 +87,27 @@
       bindings = <
 &trans       &kp F1       &kp F2       &kp F3       &kp F4       &kp F5
 &kp F6       &kp F7       &kp F8       &kp F9       &kp F10      &kp DEL
+
 &trans       &none        &none        &none        &none        &kp F11
 &kp F12      &kp PG_UP    &kp UP       &kp PG_DN    &none        &kp PIPE
+
 &trans       &none        &none        &none        &none        &kp K_LOCK
 &kp HOME     &kp LEFT     &kp DOWN     &kp RIGHT    &kp END      &trans
+
 &trans       &trans       &trans       &trans       &trans       &trans
       >;
     };
     tri_layer {
       bindings = <
 &trans       &kp C_BRI_DN &kp C_BRI_UP &kp C_MUTE   &kp C_VOL_DN &kp C_VOL_UP
-&none        &out OUT_USB &kp INS      &trans       &kp PSCRN    &trans
+&none        &out OUT_USB &kp PSCRN    &none        &none        &trans
+
 &trans       &none        &none        &none        &none        &none
-&none        &none        &none        &none        &none        &none
+&kp INS      &none        &none        &none        &none        &none
+
 &trans       &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_CLR   &out OUT_BLE
 &tog KGCS    &none        &none        &none        &none        &trans
+
 &trans       &trans       &trans       &trans       &trans       &trans
       >;
     };
@@ -107,10 +115,13 @@
       bindings = <
 &kp ESC      &kp N1       &kp N2       &kp N3       &kp N4       &kp N5
 &trans       &trans       &trans       &trans       &trans       &trans
+
 &kp TAB      &kp Q        &kp W        &kp E        &kp R        &kp N6
 &trans       &trans       &trans       &trans       &trans       &trans
+
 &kp LCTRL    &kp A        &kp S        &kp D        &kp F        &kp T
 &trans       &trans       &trans       &trans       &trans       &trans
+
 &kp LSHFT    &kp SPACE    &kp G        &kp LGUI     &mo KONE     &trans
       >;
     };
