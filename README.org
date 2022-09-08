@@ -3,14 +3,14 @@
 |1 2| |    |1 f1|2 f2|3 f3|4 f4|5 f5||6 f6|7 f7|8 f8|9 f9|0f10|  dl|
 |0 ^| | \t |q  Q|w  W|e  E|r  R|t  T||y  Y|u  U|i  I|o  O|p  P|bs  |
 :---: |----|----|----|----|----|----||----|----|----|----|----|----|
-|***| |****|!   |@   |#   |$   |%f11||^f12|& uu|*  u|- dd|_   |\  ||
+|***| |****|! m3|@ m2|# mu|$ m1|%f11||^f12|& uu|*  u|- dd|_   ||  \|
 |mod| | ct |a  A|s  S|d  D|f  F|g  G||h  H|j  J|k  K|l  L|;  :|'  "|
-'---' |----|----|----|----|----|----||----|----|----|----|----|----|
-      |****|`   |~   |(   |[   |{ lk||} ho|]  l|)  d|+  r|= en|    |
-      | sh |z  Z|x  X|c  C|v  V|b  B||n  N|m  M|,  <|.  >|/  ?| \n |
-      '----'----'----|----|----|----||----|----|----|----'----'----'
+:---: |----|----|----|----|----|----||----|----|----|----|----|----|
+|=h=| |****|`   |~ ml|( md|[ mr|{ lk||} ho|]  l|)  d|+  r|= en|=sh=|
+|-t-| | sh |z  Z|x  X|c  C|v  V|b  B||n  N|m  M|,  <|.  >|/  ?|-\n-|
+'---' '----'----'----|----|----|----||----|----|----|----'----'----'
 layers:              |****|****|    ||    |****|****|
-  ONE                | al |ONE | \e || \s | su |TWO | <--- thumb
+  ONE                | al | su | \e || \s |ONE |TWO | <--- thumb
 + TWO                '----'----'----''----'----'----'
 = TRI  ^------------------ left ---^  ^--- right -----------------^
 = .--.--.--.--.--. .--.--.--.---.--.  .---.--. .--. .---.
@@ -24,9 +24,9 @@ layers:              |****|****|    ||    |****|****|
   |\t|q |w |e |r |6 |
   |--|--|--|--|--|--|
   |ct|a |s |d |f |t |
-  '--'--'--|--|--|--|'--.--.--.
-           |sh|\s|g ||su|*1|*2|
-           '--'--'--''--'--'--'
+  '--'--'--|--|--|--|'--.
+           |sh|\s|g ||su|
+           '--'--'--''--'
 #+END_SRC
 
 *** keymap changing
@@ -34,9 +34,9 @@ layers:              |****|****|    ||    |****|****|
 For the sake of arm/wrist/hand health, do not use qwerty.
 
 *linux*
-1. define mapping in =/usr/share/X11/xkb/symbols/=
+1. define mapping as =/usr/share/X11/xkb/symbols/MAPFILE=
 2. sway/wayland:
-    1. ~swaymsg -t get_inputs~ to determine keyboard identifier
-    2. =input KBID { xkb_layout MAPFILE }= in =.config/sway/config=
+    1. ~swaymsg -t get_inputs~ to determine keyboard identifier KBID
+    2. =input KBID { xkb_layout MAPFILE ... }= in =.config/sway/config=
 3. xorg:
     - =setxkbmap MAPFILE= in =.xsession= or whatever
