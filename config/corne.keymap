@@ -1,6 +1,6 @@
 // Copyright (c) 2020 The ZMK Contributors
 // SPDX-License-Identifier: MIT
-// modified by github.com/blobject
+// modified by github.com/blobject <agaric@pm.me>
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>

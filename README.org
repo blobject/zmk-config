@@ -1,3 +1,14 @@
+* k
+
+Corne, 42-key, split, bluetooth, low-profile, silent, portable, programmer's keyboard
+
+*** up
+
+- https://zmk.dev/docs
+- https://github.com/foostan/crkbd
+
+*** layout
+
 #+BEGIN_SRC
 .---. .----.----.----.----.----.----..----.----.----.----.----.----.
 |1 2| |    |1 f1|2 f2|3 f3|4 f4|5 f5||6 f6|7 f7|8 f8|9 f9|0f10|  dl|
@@ -29,14 +40,36 @@ layers:              |****|****|    ||    |****|****|
            '--'--'--''--'
 #+END_SRC
 
-*** keymap changing
+*** build
 
-For the sake of arm/wrist/hand health, do not use qwerty.
+For build log, see *About* link.
+
+- *PCB*: Corne v3.1 Choc
+- *MCU*: nice!nano v2
+- *switch*: Kailh Choc v1 red, black
+- *battery*: 3.7V 400mAh
+- *cap*: MBK Choc
+- *case*: low-profile aluminum
+- *pad*: sorbothane
+- *feet*: cone, dome silicone
+- *o-ring*: 1.5mm 70A silicone
+- *tape*: Scotch matte
+- *lube*: 207g2
+
+*** show
+
+/WIP/
+
+*** alphabet
+
+For good health, do not use QWERTY.
+
+But let the OS handle alphabetic (+ common punctuation) layout changes. This simplifies synchronisation with other keyboards, especially the one that comes installed in a laptop.
 
 *linux*
-1. define mapping as =/usr/share/X11/xkb/symbols/MAPFILE=
+1. =/usr/share/X11/xkb/symbols/MAPFILE=: define mapping
 2. sway/wayland:
-    1. ~swaymsg -t get_inputs~ to determine keyboard identifier KBID
-    2. =input KBID { xkb_layout MAPFILE ... }= in =.config/sway/config=
+    1. ~swaymsg -t get_inputs~: determine keyboard identifier KBID
+    2. =.config/sway/config=: write =input KBID { xkb_layout MAPFILE ... }=
 3. xorg:
-    - =setxkbmap MAPFILE= in =.xsession= or whatever
+    - =.xsession= (or whatever): write =setxkbmap MAPFILE=
