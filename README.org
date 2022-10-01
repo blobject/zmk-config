@@ -1,11 +1,15 @@
 * k
 
-Corne, 42-key, split, bluetooth, low-profile, silent, portable, programmer's keyboard
+Corne, 42-key, split, bluetooth, low-profile, quiet, portable, programmer's keyboard
 
 *** up
 
 - https://zmk.dev/docs
 - https://github.com/foostan/crkbd
+
+*** show
+
+[[/pub/top.jpg]]
 
 *** layout
 
@@ -51,14 +55,10 @@ For build log, see *About* link.
 - *cap*: MBK Choc
 - *case*: low-profile aluminum
 - *pad*: sorbothane
-- *feet*: cone, dome silicone
+- *foot*: cone, dome silicone
 - *o-ring*: 1.5mm 70A silicone
 - *tape*: Scotch matte
 - *lube*: 207g2
-
-*** show
-
-/WIP/
 
 *** alphabet
 
@@ -72,4 +72,7 @@ But let the OS handle alphabetic (+ common punctuation) layout changes. This sim
     1. ~swaymsg -t get_inputs~: determine keyboard identifier KBID
     2. =.config/sway/config=: write =input KBID { xkb_layout MAPFILE ... }=
 3. xorg:
-    - =.xsession= (or whatever): write =setxkbmap MAPFILE=
+    - ~setxkbmap MAPFILE~
+4. console:
+    1. =/usr/share/kbd/keymaps/i386/MAPFILE.kmap=: define mapping
+    2. ~loadkeys MAPFILE~ (or via distro configuration)
