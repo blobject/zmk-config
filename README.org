@@ -60,11 +60,14 @@ But let the OS handle alphabetic (+ common punctuation) layout changes. This sim
 
 *linux*
 1. =/usr/share/X11/xkb/symbols/MAPFILE=: define mapping
-2. wayland (eg. sway):
-    1. ~swaymsg -t get_inputs~: determine keyboard identifier KBID
-    2. in =.config/sway/config=: =input KBID { xkb_layout MAPFILE ... }=
-3. xorg:
-    - ~setxkbmap MAPFILE~
-4. console:
+2. console:
     1. =/usr/share/kbd/keymaps/i386/MAPFILE.kmap=: define mapping
     2. ~loadkeys MAPFILE~ (or via distro configuration)
+3. wayland:
+    - labwc:
+        1. =.config/labwc/environment=: =XKB_DEFAULT_LAYOUT\=MAPFILE=
+    - sway:
+        1. ~swaymsg -t get_inputs~: determine keyboard identifier KBID
+        2. =.config/sway/config=: =input KBID { xkb_layout MAPFILE ... }=
+4. xorg:
+    - ~setxkbmap MAPFILE~
