@@ -10,12 +10,12 @@
 /*
 .---. .----.----.----.----.----.----..----.----.----.----.----.----.
 |1 2| |    |1 f1|2 f2|3 f3|4 f4|5 f5||6 f6|7 f7|8 f8|9 f9|0f10|  dl|
-|0 ^| | \t |q  Q|w  W|e  E|r  R|t  T||y  Y|u  U|i  I|o  O|p  P|bs  |
+|a A| | \t |q  Q|w  W|e  E|r  R|t  T||y  Y|u  U|i  I|o  O|p  P|bs  |
 :---: |----|----|----|----|----|----||----|----|----|----|----|----|
-|***| |****|! m3|@ m2|# mu|$ m1|%f11||^f12|& uu|*  u|- dd|_   ||  \|
+|***| |****|! m3|@ m2|# mu|$ m1|%f11||^f12|& uu|*  u|- dd|=   ||  \|
 |mod| | ct |a  A|s  S|d  D|f  F|g  G||h  H|j  J|k  K|l  L|;  :|'  "|
 :---: |----|----|----|----|----|----||----|----|----|----|----|----|
-|=h=| |****|`   |~ ml|( md|[ mr|{ lk||} ho|]  l|)  d|+  r|= en|=sh=|
+|=h=| |****|`   |~ ml|( md|[ mr|{ lk||} ho|]  l|)  d|_  r|+ en|=sh=|
 |-t-| | sh |z  Z|x  X|c  C|v  V|b  B||n  N|m  M|,  <|.  >|/  ?|-\n-|
 '---' '----'----'----|----|----|----||----|----|----|----'----'----'
 layers:              |****|****|    ||    |****|****|
@@ -85,10 +85,10 @@ layers:              |****|****|    ||    |****|****|
 &kp N6       &kp N7       &kp N8       &kp N9       &kp N0       &trans
 
 &trans       &kp EXCL     &kp AT       &kp HASH     &kp DLLR     &kp PRCNT
-&kp CARET    &kp AMPS     &kp STAR     &kp MINUS    &kp UNDER    &kp PIPE
+&kp CARET    &kp AMPS     &kp STAR     &kp MINUS    &kp EQUAL    &kp PIPE
 
 &trans       &kp GRAVE    &kp TILDE    &kp LPAR     &kp LBKT     &kp LBRC
-&kp RBRC     &kp RBKT     &kp RPAR     &kp PLUS     &kp EQUAL    &trans
+&kp RBRC     &kp RBKT     &kp RPAR     &kp UNDER    &kp PLUS     &trans
 
 &trans       &trans       &trans       &trans       &trans       &trans
       >;

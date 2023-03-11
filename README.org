@@ -16,12 +16,12 @@ Corne, 42-key, split, bluetooth, low-profile, quiet, portable, programmer's keyb
 #+BEGIN_SRC
 .---. .----.----.----.----.----.----..----.----.----.----.----.----.
 |1 2| |    |1 f1|2 f2|3 f3|4 f4|5 f5||6 f6|7 f7|8 f8|9 f9|0f10|  dl|
-|0 ^| | \t |q  Q|w  W|e  E|r  R|t  T||y  Y|u  U|i  I|o  O|p  P|bs  |
+|a A| | \t |q  Q|w  W|e  E|r  R|t  T||y  Y|u  U|i  I|o  O|p  P|bs  |
 :---: |----|----|----|----|----|----||----|----|----|----|----|----|
-|***| |****|! m3|@ m2|# mu|$ m1|%f11||^f12|& uu|*  u|- dd|_   ||  \|
+|***| |****|! m3|@ m2|# mu|$ m1|%f11||^f12|& uu|*  u|- dd|=   ||  \|
 |mod| | ct |a  A|s  S|d  D|f  F|g  G||h  H|j  J|k  K|l  L|;  :|'  "|
 :---: |----|----|----|----|----|----||----|----|----|----|----|----|
-|=h=| |****|`   |~ ml|( md|[ mr|{ lk||} ho|]  l|)  d|+  r|= en|=sh=|
+|=h=| |****|`   |~ ml|( md|[ mr|{ lk||} ho|]  l|)  d|_  r|+ en|=sh=|
 |-t-| | sh |z  Z|x  X|c  C|v  V|b  B||n  N|m  M|,  <|.  >|/  ?|-\n-|
 '---' '----'----'----|----|----|----||----|----|----|----'----'----'
 layers:              |****|****|    ||    |****|****|
@@ -51,14 +51,6 @@ For build log, see *About* link.
 - *PCB*: Corne v3.1 Choc
 - *MCU*: nice!nano v2
 - *switch*: Kailh Choc v1 red, black
-- *battery*: 3.7V 400mAh
-- *cap*: MBK Choc
-- *case*: low-profile aluminum
-- *pad*: sorbothane
-- *foot*: cone, dome silicone
-- *o-ring*: 1.5mm 70A silicone
-- *tape*: Scotch matte
-- *lube*: 207g2
 
 *** alphabet
 
@@ -68,9 +60,9 @@ But let the OS handle alphabetic (+ common punctuation) layout changes. This sim
 
 *linux*
 1. =/usr/share/X11/xkb/symbols/MAPFILE=: define mapping
-2. sway/wayland:
+2. wayland (eg. sway):
     1. ~swaymsg -t get_inputs~: determine keyboard identifier KBID
-    2. =.config/sway/config=: write =input KBID { xkb_layout MAPFILE ... }=
+    2. in =.config/sway/config=: =input KBID { xkb_layout MAPFILE ... }=
 3. xorg:
     - ~setxkbmap MAPFILE~
 4. console:
