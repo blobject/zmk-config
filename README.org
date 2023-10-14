@@ -15,13 +15,13 @@ Corne, 42-key, split, bluetooth, low-profile, quiet, portable, programmer's keyb
 
 #+BEGIN_SRC
 .---. .----.----.----.----.----.----..----.----.----.----.----.----.
-|1 2| |    |1 f1|2 f2|3 f3|4 f4|5 f5||6 f6|7 f7|8 f8|9 f9|0f10|  dl|
-|a A| | \t |q  Q|w  W|e  E|r  R|t  T||y  Y|u  U|i  I|o  O|p  P|bs  |
+|1 2| |    |1 f1|2 f2|3 f3|4 f4|5 f5||6 f6|7 f7|8 f8|9 f9|0f10|  \d|
+|a A| | \t |q  Q|w  W|e  E|r  R|t  T||y  Y|u  U|i  I|o  O|p  P|\b  |
 :---: |----|----|----|----|----|----||----|----|----|----|----|----|
 |***| |****|! m3|@ m2|# mu|$ m1|%f11||^f12|& uu|*  u|- dd|=   ||  \|
 |mod| | ct |a  A|s  S|d  D|f  F|g  G||h  H|j  J|k  K|l  L|;  :|'  "|
 :---: |----|----|----|----|----|----||----|----|----|----|----|----|
-|=h=| |****|`   |~ ml|( md|[ mr|{ lk||} ho|]  l|)  d|_  r|+ en|=sh=|
+|=h=| |****|`   |~ ml|( md|[ mr|{ lk||} <-|]  l|)  d|_  r|+ ->|=sh=|
 |-t-| | sh |z  Z|x  X|c  C|v  V|b  B||n  N|m  M|,  <|.  >|/  ?|-\n-|
 '---' '----'----'----|----|----|----||----|----|----|----'----'----'
 layers:              |****|****|    ||    |****|****|
@@ -29,10 +29,10 @@ layers:              |****|****|    ||    |****|****|
 + TWO                '----'----'----''----'----'----'
 = TRI  ^------------------ left ---^  ^--- right -----------------^
 = .--.--.--.--.--. .--.--.--.---.--.  .---.--. .--. .---.
-  |l-|l+|vx|v-|v+| |b1|b2|b3|clr|bt|  |usb|pr| |in| |GCS|
+  |l-|l+|vx|v-|v+| |b1|b2|b3|clr|bt|  |usb|pr| |in| |GFP|
   |q |w |e |r |t | |z |x |c | v |b |  | u |i | |h | | n |
   '--'--'--'--'--' '--'--'--'---'--'  '---'--' '--' '---'
-  GCS
+  GFP
 = .--.--.--.--.--.--.
   |\e|1 |2 |3 |4 |5 |
   |--|--|--|--|--|--|
@@ -65,7 +65,7 @@ But let the OS handle alphabetic (+ common punctuation) layout changes. This sim
     2. ~loadkeys MAPFILE~ (or via distro configuration)
 3. wayland:
     - labwc:
-        1. =.config/labwc/environment=: =XKB_DEFAULT_LAYOUT\=MAPFILE=
+        1. =.config/labwc/environment=: ~XKB_DEFAULT_LAYOUT=MAPFILE~
     - sway:
         1. ~swaymsg -t get_inputs~: determine keyboard identifier KBID
         2. =.config/sway/config=: =input KBID { xkb_layout MAPFILE ... }=
